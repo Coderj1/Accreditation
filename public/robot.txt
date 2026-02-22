@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://can2025.site/Sitemap.xml
