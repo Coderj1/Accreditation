@@ -23,19 +23,6 @@ function MainLayout() {
 
   return (
     <>
-        <Helmet>
-        <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "CAN 2025",
-            "url": "https://www.can2025.site",
-            "logo": "https://www.can2025.site/vite.svg"
-          }
-          `}
-        </script>
-      </Helmet>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
