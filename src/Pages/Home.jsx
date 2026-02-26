@@ -186,7 +186,8 @@ export default function Home() {
 
      if (pageload) return <Loader />;
 
-  if (user.valide === "reject") {
+   useEffect(() => {
+    if (user.valide === "reject") {
       setShowMessage(true);
 
       const timer = setTimeout(() => {
@@ -195,6 +196,7 @@ export default function Home() {
 
       return () => clearTimeout(timer);
     }
+  }, [user.valide]);
       
   return (
     <>
@@ -560,4 +562,5 @@ export default function Home() {
     </>
   )
 }
+
 
