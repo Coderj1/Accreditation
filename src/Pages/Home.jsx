@@ -21,6 +21,7 @@ export default function Home() {
   const [idBackImg, setIdBackImg] = useState(null);
   const [loading, setLoading] = useState(false);  // Loading state
   const [pageload, setPageload] = useState(true);  // Page loading state
+  const [showMessage, setShowMessage] = useState(false);
 
 
   useEffect(() => {
@@ -184,6 +185,16 @@ export default function Home() {
        }, []);
 
      if (pageload) return <Loader />;
+
+  if (user.valide === "reject") {
+      setShowMessage(true);
+
+      const timer = setTimeout(() => {
+        setShowMessage(false);
+      }, 2500);
+
+      return () => clearTimeout(timer);
+    }
       
   return (
     <>
@@ -260,11 +271,11 @@ export default function Home() {
                             </div>
                            )}
 
-                           {
-                             user.valide === 'reject' && (
-                              <p className='text-red-500 mt-2 text-sm'>{user.message}</p>
-                             )
-                           }
+                              {showMessage && (
+                                <p className="text-red-500 mt-2 font-bold text-sm">
+                                  {user.message}
+                                </p>
+                              )}
                             
                         </div>
                       </>
@@ -549,3 +560,4 @@ export default function Home() {
     </>
   )
 }
+
